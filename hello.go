@@ -66,7 +66,7 @@ func getCars(db *gorm.DB) {
 	var cars []Car
 	db.Find(&cars)
 	for _, car := range cars {
-		fmt.Println(car)
+		fmt.Println(car.ID, car.Brand, car.CarModel, car.Year)
 	}
 
 }
