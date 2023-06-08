@@ -27,12 +27,16 @@ func main() {
 	switch choiceInt {
 		case 1:
             addCar(db)
+			main()
         case 2:
             getCars(db)
+			main()
         case 3:
             deleteCar(db)
+			main()
 		default:
 			fmt.Println("Invalid choice")
+			main()
 		}
 }
 
@@ -49,7 +53,7 @@ func addCar(db *gorm.DB) {
 	yearInt, _ := strconv.ParseInt(year,10,64)
     car := Car{Brand: name, CarModel: model, Year: yearInt}
     db.Create(&car)
-	main()
+	fmt.Println("Car added")
 }
 
 func getCars(db *gorm.DB) {
@@ -58,7 +62,7 @@ func getCars(db *gorm.DB) {
     for _, car := range cars {
         fmt.Println(car)
     }
-	main()
+
 }
 
 func deleteCar(db *gorm.DB) {
@@ -67,7 +71,7 @@ func deleteCar(db *gorm.DB) {
     id = strings.TrimSpace(id)
     idInt, _ := strconv.ParseInt(id,10,64)
     db.Delete(&Car{}, idInt)
-	main()
+	fmt.Println("Car deleted")
 }
 
 
