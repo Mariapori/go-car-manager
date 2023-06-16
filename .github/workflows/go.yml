@@ -21,5 +21,20 @@ jobs:
       with:
         go-version: 1.19
 
-    - name: Build
-      run: go build -v ./...
+    - name: Build Windows
+      run: GOOS=windows GOARCH=amd64 output_name=car_manager_win go build hello
+    - name: Build Linux
+      run: GOOS=linux GOARCH=amd64 output_name=car_manager_linux go build hello
+    
+    - name: Upload a Build Artifact Windows
+      uses: actions/upload-artifact@v3.1.2
+      with:
+        name: car_manager_win
+        path: car_manager_win.exe
+        
+    - name: Upload a Build Artifact Linux
+      uses: actions/upload-artifact@v3.1.2
+      with:
+        name: car_manager_linux
+        path: car_manager_linux
+    
