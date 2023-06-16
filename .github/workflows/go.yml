@@ -22,9 +22,9 @@ jobs:
         go-version: 1.19
 
     - name: Build Windows
-      run: GOOS=windows GOARCH=amd64 output_name=car_manager_win go build -o ./car_manager_win mariapori.fi/hello
+      run: GOOS=windows GOARCH=amd64 CGO_ENABLED=1 output_name=car_manager_win go build -o ./car_manager_win.exe mariapori.fi/hello
     - name: Build Linux
-      run: GOOS=linux GOARCH=amd64 output_name=car_manager_linux go build -o ./car_manager_linux mariapori.fi/hello
+      run: GOOS=linux GOARCH=amd64 CGO_ENABLED=1 output_name=car_manager_linux go build -o ./car_manager_linux mariapori.fi/hello
     
     - name: Upload a Build Artifact Windows
       uses: actions/upload-artifact@v3.1.2
