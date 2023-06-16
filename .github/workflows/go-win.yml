@@ -22,7 +22,7 @@ jobs:
         go-version: 1.19
         
     - name: Build windows
-      run: GOOS=windows GOARCH=amd64 CGO_ENABLED=1 go build -o car_manager.exe mariapori.fi/hello
+      run: go build -o car_manager.exe mariapori.fi/hello
         
     - name: Upload a Build Artifact
       uses: actions/upload-artifact@v3.1.2
