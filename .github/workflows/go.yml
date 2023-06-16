@@ -33,7 +33,7 @@ jobs:
       uses: actions/upload-artifact@v3.1.2
       with:
         name: car_manager_win
-        path: car_manager_win
+        path: car_manager.exe
         
     - name: Upload a Build Artifact Linux
       uses: actions/upload-artifact@v3.1.2
